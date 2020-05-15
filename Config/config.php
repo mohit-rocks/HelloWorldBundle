@@ -37,6 +37,25 @@ return [
                   'mautic.integrations.helper',
                 ],
             ],
+            'helloworld.connection.client' => [
+                'class'     => \MauticPlugin\HelloWorldBundle\Connection\Client::class,
+                'arguments' => [
+                    'mautic.integrations.auth_provider.basic_auth',
+                    'mautic.helper.cache_storage',
+                    'router',
+                    'monolog.logger.mautic',
+                    'helloworld.integration.config',
+                ],
+            ],
+            'helloworld.connection.client.consumer' => [
+                'class'     => \MauticPlugin\HelloWorldBundle\Connection\ApiConsumer::class,
+                'arguments' => [
+                    'mautic.helper.cache_storage',
+                    'monolog.logger.mautic',
+                    'helloworld.connection.client',
+                    'helloworld.integration.config',
+                ],
+            ],
         ]
     ],
 ];
