@@ -30,5 +30,13 @@ return [
                 ],
             ],
         ],
+        'other' => [
+            'helloworld.integration.config' => [
+                'class'     => \MauticPlugin\HelloWorldBundle\Integration\Config::class,
+                'arguments' => [
+                  'mautic.integrations.helper',
+                ],
+            ],
+        ]
     ],
 ];
